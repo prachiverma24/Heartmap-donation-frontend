@@ -1,0 +1,284 @@
+.home-page {
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+}
+
+.map-section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.map-section h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.stories-grid {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.stories-grid h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.story-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.story-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.story-card:hover .story-image img {
+  transform: scale(1.1);
+}
+
+.verified-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #4caf50;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.urgency-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  z-index: 10;
+  animation: pulse 2s infinite;
+}
+
+.urgency-critical {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.urgency-high {
+  background: linear-gradient(135deg, #ff6b00, #ff8c00);
+}
+
+.urgency-medium {
+  background: linear-gradient(135deg, #ffa500, #ffb84d);
+}
+
+.urgency-low {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.story-content {
+  padding: 1.5rem;
+}
+
+.organization {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+.beneficiaries {
+  font-size: 0.9rem;
+  color: #23a6d5;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.story-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.story-content p {
+  color: #666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.progress-section {
+  margin: 1.5rem 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 5px;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.donate-btn {
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #ee7752, #e73c7e);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.donate-btn:hover {
+  background: linear-gradient(135deg, #e73c7e, #ee7752);
+  box-shadow: 0 8px 25px rgba(238, 119, 82, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Floating hearts animation */
+.hero-section::before {
+  content: '❤️';
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: floatHeart1 6s ease-in-out infinite;
+}
+
+.hero-section::after {
+  content: '💚';
+  position: absolute;
+  top: 40%;
+  right: 15%;
+  font-size: 2.5rem;
+  opacity: 0.3;
+  animation: floatHeart2 7s ease-in-out infinite;
+}
+
+@keyframes floatHeart1 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+  }
+}
+
+@keyframes floatHeart2 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(-10deg);
+  }
+}
+
+/* Add pulse animation to hero title */
+.hero-section h1 {
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    text-shadow: 2px 2px 20px rgba(255, 255, 255, 0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
