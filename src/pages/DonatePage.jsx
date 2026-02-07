@@ -25,7 +25,7 @@ const DonatePage = () => {
   useEffect(() => {
     const fetchStory = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/stories/${id}`);
+        const response = await axios.get(`https://heartmap-backend.onrender.com/api/stories/${id}`);
         setStory(response.data);
         setLoading(false);
       } catch (error) {
@@ -55,7 +55,7 @@ const DonatePage = () => {
     e.preventDefault();
     
     try {
-      await axios.post('http://localhost:5000/api/donate', {
+      await axios.post('https://heartmap-backend.onrender.com/api/donate', {
         storyId: id,
         ...formData
       });

@@ -26,7 +26,7 @@ const ChatBox = () => {
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/chat');
+      const response = await axios.get('https://heartmap-backend.onrender.com/api/chat');
       setMessages(response.data);
     } catch (error) {
       console.error('Error fetching messages:', error);
@@ -48,7 +48,7 @@ const ChatBox = () => {
     e.preventDefault();
     if (newMessage.trim()) {
       try {
-        await axios.post('http://localhost:5000/api/chat', {
+        await axios.post('https://heartmap-backend.onrender.com/api/chat', {
           username,
           message: newMessage,
           language: 'en'

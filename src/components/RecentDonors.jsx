@@ -14,7 +14,7 @@ const RecentDonors = ({ storyId, limit = 10, pollIntervalMs = 0 }) => {
     const fetchDonations = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:5000/api/stories/${storyId}/donations/recent?limit=${limit}`);
+        const res = await axios.get(`https://heartmap-backend.onrender.com/api/stories/${storyId}/donations/recent?limit=${limit}`);
         if (!mounted) return;
         setDonations(res.data || []);
       } catch (err) {

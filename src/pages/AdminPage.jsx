@@ -49,7 +49,7 @@ const AdminPage = () => {
       };
 
       console.log('Submitting story:', storyData);
-      const response = await axios.post('http://localhost:5000/api/stories', storyData);
+      const response = await axios.post('https://heartmap-backend.onrender.com/api/stories', storyData);
       console.log('Story submitted successfully:', response.data);
       
       setShowSuccess(true);
@@ -74,7 +74,7 @@ const AdminPage = () => {
         errorMsg += `Server error: ${error.response.data.message || error.response.statusText}`;
       } else if (error.request) {
         // Request made but no response
-        errorMsg += 'Cannot connect to server. Make sure backend is running on port 5000.';
+        errorMsg += 'Cannot connect to server. Please check your internet connection.';
       } else {
         // Other error
         errorMsg += error.message;
