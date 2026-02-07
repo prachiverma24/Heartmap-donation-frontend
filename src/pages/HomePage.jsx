@@ -13,7 +13,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchStories = async () => {
       try {
-        const response = await axios.get('https://heartmap-backend.onrender.com/api/stories');
+        const response = await axios.get('https://heartmap-donation-backend.onrender.com/api/stories');
         console.log('✅ Fetched stories from backend:', response.data);
         if (response.data && response.data.length > 0) {
           setStories(response.data);

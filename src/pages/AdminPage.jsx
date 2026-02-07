@@ -49,7 +49,7 @@ const AdminPage = () => {
       };
 
       console.log('Submitting story:', storyData);
-      const response = await axios.post('https://heartmap-backend.onrender.com/api/stories', storyData);
+      const response = await axios.post('https://heartmap-donation-backend.onrender.com/api/stories', storyData);
       console.log('Story submitted successfully:', response.data);
       
       setShowSuccess(true);

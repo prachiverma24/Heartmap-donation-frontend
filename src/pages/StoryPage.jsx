@@ -15,7 +15,7 @@ const StoryPage = () => {
   useEffect(() => {
     const fetchStory = async () => {
       try {
-        const response = await axios.get(`https://heartmap-backend.onrender.com/api/stories/${id}`);
+        const response = await axios.get(`https://heartmap-donation-backend.onrender.com/api/stories/${id}`);
         setStory(response.data);
         setLoading(false);
       } catch (error) {
