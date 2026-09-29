@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Player } from '@lottiefiles/react-lottie-player';
-import axios from 'axios';
+import api from '../api';
 import './StoryPage.css';
 import RecentDonors from '../components/RecentDonors';
 
@@ -15,7 +15,7 @@ const StoryPage = () => {
   useEffect(() => {
     const fetchStory = async () => {
       try {
-        const response = await axios.get(`https://heartmap-donation-backend.onrender.com/api/stories/${id}`);
+        const response = await api.get(`/stories/${id}`);
         setStory(response.data);
         setLoading(false);
       } catch (error) {
@@ -188,14 +188,6 @@ const StoryPage = () => {
           </div>
 
           <div className="action-buttons">
-            <motion.button 
-              className="donate-button"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate(`/donate/${story._id}`)}
-            >
-              💝 Make a Donation
-            </motion.button>
             <motion.button 
               className="back-button"
               whileHover={{ scale: 1.05 }}

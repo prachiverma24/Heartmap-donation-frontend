@@ -22,6 +22,49 @@ npm start
 
 Opens at [http://localhost:3000](http://localhost:3000)
 
+## Authentication backend
+
+The authentication API lives in `../backend` and uses MongoDB, bcrypt, JWTs in
+HTTP-only cookies, and the `user`, `ngo`, and `admin` roles.
+
+```bash
+cd ../backend
+cp .env.example .env
+# Set MONGODB_URI, JWT_SECRET, and CLIENT_ORIGIN in .env
+npm install
+npm start
+```
+
+Create an administrator from the backend directory with a strong password:
+
+```bash
+npm run create-admin -- "HeartMap Admin" admin@example.com "StrongPassword123"
+```
+
+Set `REACT_APP_API_URL=http://localhost:5000/api` in the frontend `.env` for
+authentication and role-specific API requests. Secrets must remain in the
+backend environment and must never be placed in `REACT_APP_*` variables.
+
+### HeartMap AI Donation Assistant
+
+The protected `/assistant` route sends natural-language donation questions to
+`POST /api/ai/donation-assistant`. The backend AI provider extracts structured
+intent only; MongoDB supplies the NGO names, locations, accepted donation types,
+needs, verification status, contact details, and external donation links shown
+in the response. The AI never creates NGO records or invents organizations.
+
+Configure the provider only in `backend/.env`:
+
+```bash
+AI_API_KEY=your-server-side-provider-key
+AI_API_URL=https://api.openai.com/v1/chat/completions
+AI_MODEL=gpt-4o-mini
+```
+
+The frontend never receives or stores `AI_API_KEY`. The endpoint requires an
+authenticated user, validates message length, rate-limits requests, and times
+out provider calls after 12 seconds.
+
 ## Components
 
 ### Pages
